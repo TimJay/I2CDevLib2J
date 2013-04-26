@@ -16,7 +16,7 @@
   <Registers>
     <Register>
       <Address>0</Address>
-      <ShortName>AUX_VDDIO</ShortName>
+      <ShortName><![CDATA[AUX_VDDIO]]></ShortName>
       <Name><![CDATA[Auxiliary I2C Supply Selection]]></Name>
       <Description><![CDATA[This register specifies the auxiliary I2C supply voltage level. Bits 6 through 0 are reserved.]]></Description>
       <Size>8</Size>
@@ -25,7 +25,7 @@
         <Field>
           <StartBit>7</StartBit>
           <BitLength>1</BitLength>
-          <ShortName>AUX_VDDIO</ShortName>
+          <ShortName><![CDATA[AUX_VDDIO]]></ShortName>
           <Name><![CDATA[]]></Name>
           <Description><![CDATA[AUX_VDDIO configures the high logic level of the auxiliary I2C bus to be either VLOGIC or VDD. When set to 1, the auxiliary I2C bus high logic level is VDD. When cleared to 0, the auxiliary I2C bus high logic level is VLOGIC.]]></Description>
           <RW>0</RW>
