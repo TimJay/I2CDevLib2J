@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.i2cdevlib.com">
+  <xs:element name="Device">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:integer" name="DeviceId"/>
+        <xs:element type="xs:string" name="ShortName"/>
+        <xs:element type="xs:string" name="Name"/>
+        <xs:element type="xs:string" name="Description"/>
+        <xs:element type="xs:anyURI" name="ImageURL"/>
+        <xs:element type="xs:integer" name="ManufacturerId"/>
+        <xs:element type="xs:integer" name="RegisterSize"/>
+        <xs:element type="xs:integer" name="RegisterEndian"/>
+        <xs:element type="xs:integer" name="CodeStatus"/>
+        <xs:element type="xs:integer" name="DocumentationStatus"/>
+        <xs:element type="xs:integer" name="RegisterMapStatus"/>
+        <xs:element name="Registers">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Register" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:integer" name="Address"/>
+                    <xs:element type="xs:string" name="ShortName"/>
+                    <xs:element type="xs:string" name="Name"/>
+                    <xs:element type="xs:string" name="Description"/>
+                    <xs:element type="xs:integer" name="Size"/>
+                    <xs:element type="xs:integer" name="RW"/>
+                    <xs:element name="Fields">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element name="Field" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:integer" name="StartBit"/>
+                                <xs:element type="xs:integer" name="BitLength"/>
+                                <xs:element type="xs:string" name="ShortName"/>
+                                <xs:element type="xs:string" name="Name"/>
+                                <xs:element type="xs:string" name="Description"/>
+                                <xs:element type="xs:integer" name="RW"/>
+                                <xs:element type="xs:string" name="DataType"/>
+                                <xs:element name="Options">
+                                  <xs:complexType mixed="true">
+                                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                      <xs:element name="Option">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element type="xs:integer" name="Value"/>
+                                            <xs:element type="xs:integer" name="Format"/>
+                                            <xs:element type="xs:string" name="Name"/>
+                                            <xs:element type="xs:string" name="Description"/>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:choice>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:integer" name="statusCode"/>
+      <xs:attribute type="xs:string" name="statusMessage"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
